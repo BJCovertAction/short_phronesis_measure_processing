@@ -1,0 +1,29 @@
+   Copyright 2026 Cosmic Dawn, LLC
+
+APPLIES TO:
+ - All code and config files found in the short_phronesis_measure_processing 
+   github repo found at the following URL:
+   https://github.com/BJCovertAction/short_phronesis_measure_processing
+
+   ... except items found under EXCEPTIONS.
+
+EXCEPTIONS:
+ - The distribution factor analysis data found in the following files, which are licensed under the OSF
+   agreement here: https://osf.io/893wn/overview?view_only=6fafc908bcb54f71ba55f0282ca12b87
+   - distributions\UK_CFAs.csv
+   - distributions\US_CFAs.csv
+ - The Short Phronesis Measure itself which is the property of the Jubilee Center:
+   - https://www.jubileecentre.ac.uk/project/phronesis-developing-and-validating-a-short-measure-of-practical-wisdom/
+
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
