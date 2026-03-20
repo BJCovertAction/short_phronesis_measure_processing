@@ -1,0 +1,127 @@
+# dist_construct_definitions.toml
+# Scale normalization is handled automatically using range_low and range_high.
+# When constructs with different ranges are combined into meta-constructs,
+# each constituent construct is normalized to [0, 1] before averaging,
+# preventing accidental weighting due to scale differences.
+#
+# NOTE: This TOML has NO reverse-coded items as the two CFA distributions
+#       it will be used to process already had reverse-coded items cleaned
+#       See the construct_mapping_w_reversals.txt file included for which
+#       items need reversing in the future if they're not already inverted
+#       upon processing with this file.
+
+[constructs.moral_deliberation]
+columns = [
+    "SPM_delib_1", "SPM_delib_2", "SPM_delib_3", "SPM_delib_4", "SPM_delib_5",
+    "SPM_delib_6", "SPM_delib_7", "SPM_delib_8", "SPM_delib_9", "SPM_delib_10",
+    "SPM_delib_11", "SPM_delib_12", "SPM_delib_13", "SPM_delib_14", "SPM_delib_15",
+    "SPM_delib_16", "SPM_delib_17", "SPM_delib_18", "SPM_delib_19"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.aspired_moral_identity]
+columns = [
+    "SPM_IdenAsp_1", "SPM_IdenAsp_2", "SPM_IdenAsp_3", "SPM_IdenAsp_4", "SPM_IdenAsp_5",
+    "SPM_IdenAsp_6", "SPM_IdenAsp_7", "SPM_IdenAsp_8", "SPM_IdenAsp_9", "SPM_IdenAsp_10",
+    "SPM_IdenAsp_11", "SPM_IdenAsp_12", "SPM_IdenAsp_13", "SPM_IdenAsp_14", "SPM_IdenAsp_15"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.moral_self_relevance]
+columns = [
+    "SPM_MSR_1", "SPM_MSR_2", "SPM_MSR_3", "SPM_MSR_4", "SPM_MSR_5", "SPM_MSR_6"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.moral_integration]
+columns = [
+    "SPM_MorInt_1", "SPM_MorInt_2", "SPM_MorInt_3", "SPM_MorInt_4",
+    "SPM_MorInt_5", "SPM_MorInt_6", "SPM_MorInt_7", "SPM_MorInt_8"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.emotional_regulation]
+columns = [
+    "SPM_EmReg_1", "SPM_EmReg_2", "SPM_EmReg_3", "SPM_EmReg_4", "SPM_EmReg_5",
+    "SPM_EmReg_6", "SPM_EmReg_7", "SPM_EmReg_8", "SPM_EmReg_9", "SPM_EmReg_10",
+    "SPM_EmReg_11", "SPM_EmReg_12", "SPM_EmReg_13", "SPM_EmReg_14", "SPM_EmReg_15",
+    "SPM_EmReg_16", "SPM_EmReg_17", "SPM_EmReg_18", "SPM_EmReg_19", "SPM_EmReg_20"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.virtue_id]
+columns = [
+    "SPM_VirID_1", "SPM_VirID_2", "SPM_VirID_3", "SPM_VirID_4",
+    "SPM_VirID_5", "SPM_VirID_6", "SPM_VirID_7"
+]
+range_low = 0
+range_high = 2
+reverse_coded = []
+
+[constructs.moral_relevance]
+columns = [
+    "SPM_MPYN_1", "SPM_MPYN_2", "SPM_MPYN_3", "SPM_MPYN_4",
+    "SPM_MPYN_5", "SPM_MPYN_6", "SPM_MPYN_7", "SPM_MPYN_8"
+]
+range_low = 0
+range_high = 1
+reverse_coded = []
+
+[constructs.moral_irrelevance]
+columns = [
+    "SPM_MPYN_9", "SPM_MPYN_10", "SPM_MPYN_11", "SPM_MPYN_12",
+    "SPM_MPYN_13", "SPM_MPYN_14", "SPM_MPYN_15", "SPM_MPYN_16"
+]
+range_low = 0
+range_high = 1
+reverse_coded = []
+
+[constructs.neg_moral_emotion]
+columns = [
+    "SPM_MorEm_1", "SPM_MorEm_2", "SPM_MorEm_3", "SPM_MorEm_4", "SPM_MorEm_5",
+    "SPM_MorEm_6", "SPM_MorEm_7", "SPM_MorEm_8", "SPM_MorEm_9"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+[constructs.pos_moral_emotion]
+columns = [
+    "SPM_MorEm_10", "SPM_MorEm_11", "SPM_MorEm_12",
+    "SPM_MorEm_13", "SPM_MorEm_14", "SPM_MorEm_15"
+]
+range_low = 1
+range_high = 5
+reverse_coded = []
+
+# ─────────────────────────────────────────────
+# Meta-constructs are computed from constructs.
+# Each constituent construct is normalized to
+# [0, 1] before averaging to prevent scale
+# weighting artifacts.
+# ─────────────────────────────────────────────
+
+[meta_constructs.moral_adjudication]
+components = ["moral_deliberation", "moral_integration"]
+
+[meta_constructs.moral_identity]
+components = ["aspired_moral_identity", "moral_self_relevance"]
+
+[meta_constructs.moral_perception]
+components = ["virtue_id", "moral_relevance", "moral_irrelevance"]
+
+[meta_constructs.moral_emotion]
+components = ["emotional_regulation", "pos_moral_emotion", "neg_moral_emotion"]
+
+[meta_constructs.phronesis]
+components = ["moral_adjudication", "moral_identity", "moral_perception", "moral_emotion"]
